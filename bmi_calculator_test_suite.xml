@@ -1,0 +1,9 @@
+<suite name="regression">
+    <test name="BMI Calculator Safari">
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="url" value="https://www.calculator.net/bmi-calculator.html"></parameter>
+        <classes>
+            <class name="testcases.BMICalculatorTest"></class>
+        </classes>
+    </test>
+</suite>
