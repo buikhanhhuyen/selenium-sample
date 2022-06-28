@@ -12,7 +12,8 @@ public class BMICalculatorPage {
     By ageInput = By.id("cage");
     By maleRad = By.xpath("//label[@class='cbcontainer'][1]");
     By femaleRad = By.xpath("//label[@class='cbcontainer'][2]");
-    By heightInput = By.id("cheightmeter");
+//    By heightInput = By.id("cheightmeter");
+    By heightInput = By.cssSelector("##cheightmeter");
     By weightInput =By.id("ckg");
     By calculateBtn = By.xpath("//input[@value='Calculate']");
     By clearBtn = By.xpath("//*[@class='clearbtn']");

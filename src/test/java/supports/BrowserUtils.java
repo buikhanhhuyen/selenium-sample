@@ -31,6 +31,7 @@ public class BrowserUtils {
         driver = openBrowser(browserName);
 //        driver = openBrowser("chrome");
         driver.get(url);
+        driver.manage().window().maximize();
 //        driver.get("https://www.calculator.net/bmi-calculator.html");
     }
 

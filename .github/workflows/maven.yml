@@ -34,4 +34,12 @@ jobs:
         path: ${{ github.workspace }}/target/surefire-reports/TEST-*.xml
         reporter: java-junit
         java-version: 16
+  - name: screenshots-ci-action
+    uses: flameddd/screenshots-ci-action@v1.1.1
+    with:
+      url: https://github.com
+  - uses: actions/upload-artifact@v2
+    with:
+      path: screenshots
+      name: Download-screenshots
 
