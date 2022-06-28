@@ -31,6 +31,7 @@ public class BMICalculatorTest extends BrowserUtils implements BMICalculatorUtil
     @Test(dataProvider = "validDataTest")
     void verifyCalculateWithValidTestData(double age, String gender, double height, double weight){
         page = new BMICalculatorPage(driver);
+        page.selectMetricUnitTab();
         page.clickClearBtn();
         page.fillForm(age, gender, height, weight);
         page.clickCalculateBtn();

@@ -1,5 +1,5 @@
 <suite name="regression">
-    <test name="BMI Calculator Safari">
+    <test name="BMI Calculator Chrome">
         <parameter name="browserName" value="chrome"></parameter>
         <parameter name="url" value="https://www.calculator.net/bmi-calculator.html"></parameter>
         <classes>
