@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -50,7 +51,9 @@ public class BrowserUtils {
     public static WebDriver openBrowser(String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
-            return new ChromeDriver();
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setHeadless(true);
+            return new ChromeDriver(chromeOptions);
         }
         else if(browserName.equalsIgnoreCase("safari")){
             return new SafariDriver();
