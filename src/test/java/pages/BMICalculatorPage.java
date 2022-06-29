@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
@@ -12,8 +13,7 @@ public class BMICalculatorPage {
     By ageInput = By.id("cage");
     By maleRad = By.xpath("//label[@class='cbcontainer'][1]");
     By femaleRad = By.xpath("//label[@class='cbcontainer'][2]");
-//    By heightInput = By.id("cheightmeter");
-    By heightInput = By.cssSelector("##cheightmeter");
+    By heightInput = By.id("cheightmeter");
     By weightInput =By.id("ckg");
     By calculateBtn = By.xpath("//input[@value='Calculate']");
     By clearBtn = By.xpath("//*[@class='clearbtn']");
@@ -59,6 +59,11 @@ public class BMICalculatorPage {
 
     public void inputHeight(double height){
         driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        je.executeScript("document.getElementById('" + heightInput + "').value = '" + height + "'");
+//        ((IJavaScriptExecutor)webdriver).ExecuteScript("document.getElementById('" + elementID + "').value ='" + fieldValue + "'");
+
+
     }
 
     public void inputWeight(double weight){
