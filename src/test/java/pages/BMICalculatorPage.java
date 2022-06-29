@@ -13,7 +13,8 @@ public class BMICalculatorPage {
     By ageInput = By.id("cage");
     By maleRad = By.xpath("//label[@class='cbcontainer'][1]");
     By femaleRad = By.xpath("//label[@class='cbcontainer'][2]");
-    By heightInput = By.id("cheightmeter");
+//    By heightInput = By.id("cheightmeter");
+    By heightInput = By.xpath("//input[@id='cheightmeter']");
     By weightInput =By.id("ckg");
     By calculateBtn = By.xpath("//input[@value='Calculate']");
     By clearBtn = By.xpath("//*[@class='clearbtn']");
@@ -58,11 +59,13 @@ public class BMICalculatorPage {
     }
 
     public void inputHeight(double height){
-        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
-//        JavascriptExecutor je = (JavascriptExecutor) driver;
+//        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
+        JavascriptExecutor je = (JavascriptExecutor) driver;
 //        je.executeScript("document.getElementById('" + heightInput + "').value = '" + String.valueOf(format.format(height)) + "'");
 //        je.executeScript("document.getElementById('" + heightInput + "').setAttribute('value', '" + String.valueOf(format.format(height)) + "')");
-//        driver.findElement(By.xpath("//input[@id='cheightmeter']")).sendKeys(String.valueOf(format.format(height)));
+        String xpath = "document.evaluate(\"//input[@id='cheightmeter']\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)";
+        je.executeScript("document.evaluate(" + xpath + ").singleNodeValue.value=" + String.valueOf(format.format(height)) + ";");
+
     }
 
     public void inputWeight(double weight){
