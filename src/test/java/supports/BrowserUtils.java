@@ -53,7 +53,7 @@ public class BrowserUtils {
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setHeadless(false);
+            chromeOptions.setHeadless(true);
             return new ChromeDriver(chromeOptions);
         }
         else if(browserName.equalsIgnoreCase("safari")){

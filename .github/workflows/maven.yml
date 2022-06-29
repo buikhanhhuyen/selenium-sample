@@ -13,6 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
 
     steps:
     - uses: actions/checkout@v3
@@ -44,6 +45,7 @@ jobs:
       with:
         url: https://github.com
     - uses: actions/upload-artifact@v2
+      if: always()
       with:
         path: screenshots
         name: Download-screenshots
