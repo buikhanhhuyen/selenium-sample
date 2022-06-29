@@ -58,7 +58,7 @@ public class BMICalculatorPage {
     }
 
     public void inputHeight(double height){
-        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
+//        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
         JavascriptExecutor je = (JavascriptExecutor) driver;
         je.executeScript("document.getElementById('" + heightInput + "').value = '" + height + "'");
 //        ((IJavaScriptExecutor)webdriver).ExecuteScript("document.getElementById('" + elementID + "').value ='" + fieldValue + "'");
