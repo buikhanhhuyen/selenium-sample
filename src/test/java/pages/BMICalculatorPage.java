@@ -60,7 +60,10 @@ public class BMICalculatorPage {
     public void inputHeight(double height){
 //        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
         JavascriptExecutor je = (JavascriptExecutor) driver;
-        je.executeScript("document.getElementById('" + heightInput + "').value = '" + height + "'");
+//        je.executeScript("document.getElementById('" + heightInput + "').value = '" + String.valueOf(format.format(height)) + "'");
+        je.executeScript("document.getElementById('" + heightInput + "').setAttribute('value', '" + String.valueOf(format.format(height)) + "'");
+//        jse.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
+
 //        ((IJavaScriptExecutor)webdriver).ExecuteScript("document.getElementById('" + elementID + "').value ='" + fieldValue + "'");
 
 
