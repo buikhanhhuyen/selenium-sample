@@ -58,14 +58,11 @@ public class BMICalculatorPage {
     }
 
     public void inputHeight(double height){
-//        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
-        JavascriptExecutor je = (JavascriptExecutor) driver;
+        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
+//        JavascriptExecutor je = (JavascriptExecutor) driver;
 //        je.executeScript("document.getElementById('" + heightInput + "').value = '" + String.valueOf(format.format(height)) + "'");
-        je.executeScript("document.getElementById('" + heightInput + "').setAttribute('value', '" + String.valueOf(format.format(height)) + "')");
-//        jse.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
-
-
-
+//        je.executeScript("document.getElementById('" + heightInput + "').setAttribute('value', '" + String.valueOf(format.format(height)) + "')");
+//        driver.findElement(By.xpath("//input[@id='cheightmeter']")).sendKeys(String.valueOf(format.format(height)));
     }
 
     public void inputWeight(double weight){
