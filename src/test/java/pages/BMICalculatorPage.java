@@ -1,11 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.DecimalFormat;
+import java.time.Duration;
 
 public class BMICalculatorPage {
     private WebDriver driver;
@@ -59,12 +59,13 @@ public class BMICalculatorPage {
     }
 
     public void inputHeight(double height){
-//        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
-        JavascriptExecutor je = (JavascriptExecutor) driver;
+        waitUntilElementVisible(driver.findElement(heightInput));
+        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
+//        JavascriptExecutor je = (JavascriptExecutor) driver;
 //        je.executeScript("document.getElementById('" + heightInput + "').value = '" + String.valueOf(format.format(height)) + "'");
 //        je.executeScript("document.getElementById('" + heightInput + "').setAttribute('value', '" + String.valueOf(format.format(height)) + "')");
-        String xpath = "document.evaluate(\"//input[@id='cheightmeter']\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)";
-        je.executeScript("document.evaluate(" + xpath + ").singleNodeValue.value=" + String.valueOf(format.format(height)) + ";");
+//        String xpath = "document.evaluate(\"//input[@id='cheightmeter']\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)";
+//        je.executeScript("document.evaluate(" + xpath + ").singleNodeValue.value=" + String.valueOf(format.format(height)) + ";");
 
     }
 
@@ -110,5 +111,16 @@ public class BMICalculatorPage {
 
     public String getErrorMsg(){
         return driver.findElement(errorMsg).getText();
+    }
+
+    private void waitToFinishLoading(){
+        JavascriptExecutor j = (JavascriptExecutor) driver;
+        do{
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+        } while(!j.executeScript("return document.readyState").toString().equalsIgnoreCase("complete"));
+    }
+
+    private void waitUntilElementVisible(WebElement element){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(element));
     }
 }
