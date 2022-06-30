@@ -49,3 +49,10 @@ jobs:
       with:
         path: screenshots
         name: Download-screenshots
+    - name: Upload failed tests
+      if: ${{ failure() }}
+      uses: edunad/actions-image@v1.0.1
+      with:
+        path: './failed_tests/**/*.png'
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        title: 'Failed E2E tests'
