@@ -33,7 +33,7 @@ public class BMICalculatorTest extends BrowserUtils implements BMICalculatorUtil
         page = new BMICalculatorPage(driver);
 //        Thread.sleep(500);
         page.selectMetricUnitTab();
-//        Thread.sleep(500);
+        Thread.sleep(500);
 //        page.clickClearBtn();
 //        Thread.sleep(500);
 //        page.fillForm(age, gender, height, weight);
