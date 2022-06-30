@@ -52,9 +52,10 @@ public class BrowserUtils {
     public static WebDriver openBrowser(String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setHeadless(true);
-            return new ChromeDriver(chromeOptions);
+//            ChromeOptions chromeOptions = new ChromeOptions();
+//            chromeOptions.setHeadless(true);
+//            return new ChromeDriver(chromeOptions);
+            return new ChromeDriver();
         }
         else if(browserName.equalsIgnoreCase("safari")){
             return new SafariDriver();
