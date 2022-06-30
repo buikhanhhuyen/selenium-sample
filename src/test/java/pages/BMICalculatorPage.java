@@ -60,13 +60,14 @@ public class BMICalculatorPage {
 
     public void inputHeight(double height){
         waitUntilElementVisible(driver.findElement(heightInput));
-        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
-//        JavascriptExecutor je = (JavascriptExecutor) driver;
+//        driver.findElement(heightInput).sendKeys(String.valueOf(format.format(height)));
+
 //        je.executeScript("document.getElementById('" + heightInput + "').value = '" + String.valueOf(format.format(height)) + "'");
 //        je.executeScript("document.getElementById('" + heightInput + "').setAttribute('value', '" + String.valueOf(format.format(height)) + "')");
-//        String xpath = "document.evaluate(\"//input[@id='cheightmeter']\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)";
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        String xpath = "document.evaluate(\"//input[@id='cheightmeter']\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)";
 //        je.executeScript("document.evaluate(" + xpath + ").singleNodeValue.value=" + String.valueOf(format.format(height)) + ";");
-
+        je.executeScript(xpath + "singleNodeValue.value=" + String.valueOf(format.format(height)) + ";");
     }
 
     public void inputWeight(double weight){
