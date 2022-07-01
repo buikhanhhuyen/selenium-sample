@@ -31,15 +31,15 @@ public class BMICalculatorTest extends BrowserUtils implements BMICalculatorUtil
     @Test(dataProvider = "validDataTest")
     void verifyCalculateWithValidTestData(double age, String gender, double height, double weight) throws InterruptedException {
         page = new BMICalculatorPage(driver);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         page.selectMetricUnitTab();
-//        Thread.sleep(500);
-//        page.clickClearBtn();
-//        Thread.sleep(500);
-//        page.fillForm(age, gender, height, weight);
-//        Thread.sleep(500);
+        Thread.sleep(500);
+        page.clickClearBtn();
+        Thread.sleep(500);
+        page.fillForm(age, gender, height, weight);
+        Thread.sleep(500);
         page.clickCalculateBtn();
-        Thread.sleep(100);
+        Thread.sleep(3000);
         String actualResult = page.getResult();
         String expectedResult = bmiResult(height, weight);
         Assert.assertEquals(actualResult, expectedResult);
