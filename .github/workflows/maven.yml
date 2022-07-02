@@ -28,7 +28,6 @@ jobs:
 
     - name: Build with Maven
       if: ${{ always() }}
-      continue-on-error: true
       run: mvn clean test allure:report
 
     - name: Test Report
