@@ -39,7 +39,7 @@ jobs:
         name: Test Results
         path: ${{ github.workspace }}/target/surefire-reports/TEST-*.xml
         reporter: java-junit
-        java-version: 16
+#        java-version: 16
 
     - name: Archive test results
       if: ${{ always() }}
