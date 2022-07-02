@@ -49,6 +49,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>bmi_calculator_test_suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
             <plugin>
