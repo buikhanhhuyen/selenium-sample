@@ -36,6 +36,7 @@ jobs:
         reporter: java-junit
         java-version: 16
     - name: Archive test results
+      if: always()
       uses: actions/upload-artifact@v3
       with:
         name: allure report
