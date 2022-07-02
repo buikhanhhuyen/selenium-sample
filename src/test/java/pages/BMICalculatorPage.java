@@ -10,7 +10,7 @@ import java.time.Duration;
 public class BMICalculatorPage {
     private WebDriver driver;
 //    By metricUnitTab = By.xpath("//*[@id='menuon']//a");
-    By metricUnitTab = By.linkText("Metric Units")
+    By metricUnitTab = By.linkText("Metric Units");
     By ageInput = By.id("cage");
     By maleRad = By.xpath("//label[@class='cbcontainer'][1]");
     By femaleRad = By.xpath("//label[@class='cbcontainer'][2]");
