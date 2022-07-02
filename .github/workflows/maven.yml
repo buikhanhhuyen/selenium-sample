@@ -33,7 +33,7 @@ jobs:
     - name: Test Report
       uses: dorny/test-reporter@v1
 #      if: success() || failure()
-      if: always()
+      if: ${{ always() }}
       with:
         name: Test Results
         path: ${{ github.workspace }}/target/surefire-reports/TEST-*.xml
@@ -41,7 +41,7 @@ jobs:
         java-version: 16
 
     - name: Archive test results
-      if: always()
+      if: ${{ always() }}
       uses: actions/upload-artifact@v3
       with:
         name: allure report
